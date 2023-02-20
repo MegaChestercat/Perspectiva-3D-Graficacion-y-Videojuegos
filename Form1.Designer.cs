@@ -35,6 +35,7 @@
             this.rotBTN2 = new System.Windows.Forms.Button();
             this.rotBTN3 = new System.Windows.Forms.Button();
             this.rotBTN4 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,12 +92,23 @@
             this.rotBTN4.UseVisualStyleBackColor = true;
             this.rotBTN4.Click += new System.EventHandler(this.rotBTN4_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1145, 484);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 96);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "To start using the \nprogram you can click \non any of the buttons \nof above to see" +
+    " how \nthe cube can rotate \non different axis.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1293, 673);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.rotBTN4);
             this.Controls.Add(this.rotBTN3);
             this.Controls.Add(this.rotBTN2);
@@ -106,6 +118,7 @@
             this.Text = "3D Graphical Engine";
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -117,6 +130,7 @@
         private System.Windows.Forms.Button rotBTN2;
         private System.Windows.Forms.Button rotBTN3;
         private System.Windows.Forms.Button rotBTN4;
+        private System.Windows.Forms.Label label1;
     }
 }
 
