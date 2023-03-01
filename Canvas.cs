@@ -12,14 +12,17 @@ namespace Graphic_Engine
 {
     public class Canvas
     {
-        static Bitmap bmp;
-        static Graphics g;
-        PictureBox pct;
-        float hWidth, hHeight;
-        PointF3D a, b, c, d;
 
-        Scene scene; //The scene will save all the faces of the cube, including all of its vertices.
-        Figure f1, f2, f3, f4, f5, f6, f1D, f2D, f3D, f4D, f5D, f6D; 
+        OptimizedCanvas canvas;
+
+        //static Bitmap bmp;
+        //static Graphics g;
+        PictureBox PCT_CANVAS;
+        int hWidth, hHeight;
+        Point a, b, c, d;
+
+        Mesh scene; //The scene will save all the faces of the cube, including all of its vertices.
+        Triangle f1, f2, f3, f4, f5, f6, f1D, f2D, f3D, f4D, f5D, f6D; 
         Matrix m;
 
         PointF3D[] normal, line1, line2;
@@ -27,54 +30,59 @@ namespace Graphic_Engine
 
         public Canvas(PictureBox pct)
         {
-            this.pct = pct;
-            bmp = new Bitmap(pct.Width, pct.Height);
+            PCT_CANVAS = pct;
+            canvas = new OptimizedCanvas(PCT_CANVAS.Size);
+            pct.Image = canvas.bitmap;
+            //bmp = new Bitmap(pct.Width, pct.Height);
 
-            scene = new Scene();
+            scene = new Mesh();
             m = new Matrix();
 
-            Init();
+            canvas.FastClear();
+            PCT_CANVAS.Invalidate();
+            //Init();
         }
 
         public void Init()
         {
-            g = Graphics.FromImage(bmp);
-            g.Clear(Color.Black);
-            pct.Image = bmp;
-            pct.Invalidate();
+            canvas.FastClear();
+            //g = Graphics.FromImage(bmp);
+            //g.Clear(Color.Black);
+            //pct.Image = bmp;
+            //pct.Invalidate();
         }
 
         public void drawMidPoint() //The method generates the midpoint lines
         {
-            hWidth = pct.Width / 2f;
-            hHeight = pct.Height / 2f;
+            hWidth = (int)(PCT_CANVAS.Width / 2f);
+            hHeight = (int)(PCT_CANVAS.Height / 2f);
 
-            a = new PointF3D(hWidth - hWidth, hHeight, -1);
-            b = new PointF3D(hWidth + hWidth, hHeight, -1);
-            c = new PointF3D(hWidth, hHeight - hHeight, -1);
-            d = new PointF3D(hWidth, hHeight + hHeight, -1);
+            a = new Point(hWidth - hWidth, hHeight);
+            b = new Point(hWidth + hWidth, hHeight);
+            c = new Point((int)hWidth, (int)hHeight - hHeight);
+            d = new Point((int)hWidth, (int)hHeight + hHeight);
 
-            g.DrawLine(Pens.Gray,a.X, a.Y, b.X, b.Y);
-            g.DrawLine(Pens.Gray, c.X, c.Y, d.X, d.Y);
+            canvas.DrawLine(a, b, Color.Gray);
+            canvas.DrawLine(c, d, Color.Gray);
 
-            pct.Invalidate();
+            PCT_CANVAS.Invalidate();
         }
         public void Cube() //This method is in charge of creating and defining all the faces of the cube that will be saved on an object of the type Scene.
         {
             
             //Cube faces
-            f1 = new Figure();
-            f2 = new Figure();
-            f3 = new Figure();
-            f4 = new Figure();
-            f5 = new Figure();
-            f6 = new Figure();
-            f1D = new Figure();
-            f2D = new Figure();
-            f3D = new Figure();
-            f4D = new Figure();
-            f5D = new Figure();
-            f6D = new Figure();
+            f1 = new Triangle();
+            f2 = new Triangle();
+            f3 = new Triangle();
+            f4 = new Triangle();
+            f5 = new Triangle();
+            f6 = new Triangle();
+            f1D = new Triangle();
+            f2D = new Triangle();
+            f3D = new Triangle();
+            f4D = new Triangle();
+            f5D = new Triangle();
+            f6D = new Triangle();
 
             line1 = new PointF3D[12];
             line2 = new PointF3D[12];
@@ -87,8 +95,6 @@ namespace Graphic_Engine
             f1.Add(new PointF3D(- 1, - 1, 1));
             f1.Add(new PointF3D(1, - 1, 1));
             f1.Add(new PointF3D(1, 1, 1));
-
-           
 
             scene.Figures.Add(f1);
 
@@ -171,8 +177,8 @@ namespace Graphic_Engine
 
             for(int i = 0; i < 12; i++)
             {
-                line1[i] = new PointF3D(scene.Figures[i].Pts[1].X - scene.Figures[i].Pts[0].X, scene.Figures[i].Pts[1].Y - scene.Figures[i].Pts[0].Y, scene.Figures[i].Pts[1].Z - f4.Pts[0].Z);
-                line2[i] = new PointF3D(scene.Figures[i].Pts[2].X - scene.Figures[i].Pts[0].X, scene.Figures[i].Pts[2].Y - scene.Figures[i].Pts[0].Y, scene.Figures[i].Pts[2].Z - f4.Pts[0].Z);
+                line1[i] = new PointF3D(scene.Figures[i].Pts[1].X - scene.Figures[i].Pts[0].X, scene.Figures[i].Pts[1].Y - scene.Figures[i].Pts[0].Y, scene.Figures[i].Pts[1].Z - scene.Figures[i].Pts[0].Z);
+                line2[i] = new PointF3D(scene.Figures[i].Pts[2].X - scene.Figures[i].Pts[0].X, scene.Figures[i].Pts[2].Y - scene.Figures[i].Pts[0].Y, scene.Figures[i].Pts[2].Z - scene.Figures[i].Pts[0].Z);
                 normal[i] = new PointF3D(line1[i].Y * line2[i].Z - line1[i].Z * line2[i].Y, line1[i].Z * line2[i].X - line1[i].X * line2[i].Z, line1[i].X * line2[i].Y - line1[i].Y * line2[i].X);
                 l[i] = Math.Sqrt((normal[i].X * normal[i].X) + (normal[i].Y * normal[i].Y) + (normal[i].Z * normal[i].Z));
                 normal[i].X /= (float)l[i]; normal[i].Y /= (float)l[i]; normal[i].Z /= (float)l[i];
@@ -182,14 +188,14 @@ namespace Graphic_Engine
         }
         public void Render() //The method tranform 3D points into 2D points, clears the canvas, and draws the faces of the cube inside the canvas with the 2D points
         {
-            g.Clear(Color.Black);
+            canvas.FastClear();
             drawMidPoint();
 
             for (int i = 0; i < 12; i++)
             {
-                scene.Figures[i].Pts2D[0] = new PointF(hWidth + (150 * (scene.Figures[i].Pts[0].X / (3 - scene.Figures[i].Pts[0].Z))), hHeight + (150 * (scene.Figures[i].Pts[0].Y / (3 - scene.Figures[i].Pts[0].Z))));
-                scene.Figures[i].Pts2D[1] = new PointF(hWidth + (150 * (scene.Figures[i].Pts[1].X / (3 - scene.Figures[i].Pts[1].Z))), hHeight + (150 * (scene.Figures[i].Pts[1].Y / (3 - scene.Figures[i].Pts[1].Z))));
-                scene.Figures[i].Pts2D[2] = new PointF(hWidth + (150 * (scene.Figures[i].Pts[2].X / (3 - scene.Figures[i].Pts[2].Z))), hHeight + (150 * (scene.Figures[i].Pts[2].Y / (3 - scene.Figures[i].Pts[2].Z))));
+                scene.Figures[i].Pts2D[0] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[0].X / (3 - scene.Figures[i].Pts[0].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[0].Y / (3 - scene.Figures[i].Pts[0].Z)))));
+                scene.Figures[i].Pts2D[1] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[1].X / (3 - scene.Figures[i].Pts[1].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[1].Y / (3 - scene.Figures[i].Pts[1].Z)))));
+                scene.Figures[i].Pts2D[2] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[2].X / (3 - scene.Figures[i].Pts[2].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[2].Y / (3 - scene.Figures[i].Pts[2].Z)))));
                 //scene.Figures[i].Pts2D[3] = new PointF(hWidth + (150 * (scene.Figures[i].Pts[3].X / (3 - scene.Figures[i].Pts[3].Z))), hHeight + (150 * (scene.Figures[i].Pts[3].Y / (3 - scene.Figures[i].Pts[3].Z))));
 
             }
@@ -197,7 +203,7 @@ namespace Graphic_Engine
             for(int i = 0; i < 12; i++)
             {
                 if (normal[i].Z < 0)
-                    g.DrawPolygon(Pens.White, scene.Figures[i].Pts2D);
+                    canvas.DrawWireFrameTriangle(scene.Figures[i].Pts2D[0], scene.Figures[i].Pts2D[1], scene.Figures[i].Pts2D[2], Color.White);
             }
             /*
             if(normal[0].Z < 0)
@@ -224,7 +230,7 @@ namespace Graphic_Engine
                 g.DrawPolygon(Pens.White, scene.Figures[10].Pts2D);
             if (normal[11].Z < 0)
                 g.DrawPolygon(Pens.White, scene.Figures[11].Pts2D);*/
-            pct.Invalidate();
+            PCT_CANVAS.Invalidate();
         }
             
 

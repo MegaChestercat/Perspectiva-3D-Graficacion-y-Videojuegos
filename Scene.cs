@@ -1,15 +1,16 @@
 ﻿
+using Graphic_Engine;
 using System.Collections.Generic;
 
-namespace Graphic_Engine
+namespace Graphical_Engine
 {
-    public class Scene //This class is in charge of creating 3D objects (as a cube) with the use of figures as the faces of the 3D objects.
+    public class Scene
     {
-        public List<Figure> Figures;
+        public List<Mesh> Meshes;
 
         public Scene()
         {
-            Figures = new List<Figure>();
+            Meshes = new List<Mesh>();
         }
     }
 }
