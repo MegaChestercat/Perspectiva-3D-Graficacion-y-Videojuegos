@@ -33,23 +33,13 @@ namespace Graphic_Engine
             PCT_CANVAS = pct;
             canvas = new OptimizedCanvas(PCT_CANVAS.Size);
             pct.Image = canvas.bitmap;
-            //bmp = new Bitmap(pct.Width, pct.Height);
 
             scene = new Mesh();
             m = new Matrix();
 
             canvas.FastClear();
             PCT_CANVAS.Invalidate();
-            //Init();
-        }
-
-        public void Init()
-        {
-            canvas.FastClear();
-            //g = Graphics.FromImage(bmp);
-            //g.Clear(Color.Black);
-            //pct.Image = bmp;
-            //pct.Invalidate();
+            
         }
 
         public void drawMidPoint() //The method generates the midpoint lines
@@ -196,7 +186,7 @@ namespace Graphic_Engine
                 scene.Figures[i].Pts2D[0] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[0].X / (3 - scene.Figures[i].Pts[0].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[0].Y / (3 - scene.Figures[i].Pts[0].Z)))));
                 scene.Figures[i].Pts2D[1] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[1].X / (3 - scene.Figures[i].Pts[1].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[1].Y / (3 - scene.Figures[i].Pts[1].Z)))));
                 scene.Figures[i].Pts2D[2] = new Point((int)(hWidth + (150 * (scene.Figures[i].Pts[2].X / (3 - scene.Figures[i].Pts[2].Z)))), (int)(hHeight + (150 * (scene.Figures[i].Pts[2].Y / (3 - scene.Figures[i].Pts[2].Z)))));
-                //scene.Figures[i].Pts2D[3] = new PointF(hWidth + (150 * (scene.Figures[i].Pts[3].X / (3 - scene.Figures[i].Pts[3].Z))), hHeight + (150 * (scene.Figures[i].Pts[3].Y / (3 - scene.Figures[i].Pts[3].Z))));
+                
 
             }
 
@@ -205,31 +195,7 @@ namespace Graphic_Engine
                 if (normal[i].Z < 0)
                     canvas.DrawWireFrameTriangle(scene.Figures[i].Pts2D[0], scene.Figures[i].Pts2D[1], scene.Figures[i].Pts2D[2], Color.White);
             }
-            /*
-            if(normal[0].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[0].Pts2D);
-            if (normal[1].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[1].Pts2D);
-            if (normal[2].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[2].Pts2D);
-            if (normal[3].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[3].Pts2D);
-            if (normal[4].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[4].Pts2D);
-            if (normal[5].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[5].Pts2D);
-            if (normal[6].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[6].Pts2D);
-            if (normal[7].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[7].Pts2D);
-            if (normal[8].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[8].Pts2D);
-            if (normal[9].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[9].Pts2D);
-            if (normal[10].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[10].Pts2D);
-            if (normal[11].Z < 0)
-                g.DrawPolygon(Pens.White, scene.Figures[11].Pts2D);*/
+           
             PCT_CANVAS.Invalidate();
         }
             
