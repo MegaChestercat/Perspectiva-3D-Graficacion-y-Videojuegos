@@ -23,6 +23,7 @@ namespace Graphic_Engine
             canvas = new Canvas(PCT_CANVAS);
             canvas.drawMidPoint(); //This will create the midpoint lines
             canvas.Cube(); //This method will create the initial cube
+            //anvas.DrawCircle(3, 9);
         }
 
         private void rotBTN_Click(object sender, EventArgs e)

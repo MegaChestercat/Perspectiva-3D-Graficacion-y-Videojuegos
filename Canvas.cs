@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Graphical_Engine;
+using System.Reflection;
 
 namespace Graphic_Engine
 {
@@ -26,6 +27,8 @@ namespace Graphic_Engine
         PointF3D camera;
         PointF3D[] normal, line1, line2;
         Double[] l;
+        Pizza pizza;
+        
 
         public Canvas(PictureBox pct)
         {
@@ -177,6 +180,12 @@ namespace Graphic_Engine
             }
 
             Render();
+        }
+
+        
+        public void Cone(int height, int radius, int numSegments)
+        {
+
         }
         public void Render() //The method tranform 3D points into 2D points, clears the canvas, and draws the faces of the cube inside the canvas with the 2D points
         {
