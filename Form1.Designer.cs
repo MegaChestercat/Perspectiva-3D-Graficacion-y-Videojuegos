@@ -41,9 +41,15 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.buttonCube = new System.Windows.Forms.Button();
+            this.buttonCone = new System.Windows.Forms.Button();
+            this.buttonCylinder = new System.Windows.Forms.Button();
+            this.buttonSphere = new System.Windows.Forms.Button();
+            this.buttonHalfSphere = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PCT_CANVAS
@@ -136,6 +142,11 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.buttonHalfSphere);
+            this.panel3.Controls.Add(this.buttonSphere);
+            this.panel3.Controls.Add(this.buttonCylinder);
+            this.panel3.Controls.Add(this.buttonCone);
+            this.panel3.Controls.Add(this.buttonCube);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 573);
             this.panel3.Name = "panel3";
@@ -159,6 +170,51 @@
             this.panel5.Size = new System.Drawing.Size(75, 527);
             this.panel5.TabIndex = 3;
             // 
+            // buttonCube
+            // 
+            this.buttonCube.Location = new System.Drawing.Point(121, 31);
+            this.buttonCube.Name = "buttonCube";
+            this.buttonCube.Size = new System.Drawing.Size(75, 23);
+            this.buttonCube.TabIndex = 0;
+            this.buttonCube.Text = "Cube";
+            this.buttonCube.UseVisualStyleBackColor = true;
+            // 
+            // buttonCone
+            // 
+            this.buttonCone.Location = new System.Drawing.Point(313, 30);
+            this.buttonCone.Name = "buttonCone";
+            this.buttonCone.Size = new System.Drawing.Size(75, 23);
+            this.buttonCone.TabIndex = 1;
+            this.buttonCone.Text = "Cone";
+            this.buttonCone.UseVisualStyleBackColor = true;
+            // 
+            // buttonCylinder
+            // 
+            this.buttonCylinder.Location = new System.Drawing.Point(498, 30);
+            this.buttonCylinder.Name = "buttonCylinder";
+            this.buttonCylinder.Size = new System.Drawing.Size(75, 23);
+            this.buttonCylinder.TabIndex = 2;
+            this.buttonCylinder.Text = "Cylinder";
+            this.buttonCylinder.UseVisualStyleBackColor = true;
+            // 
+            // buttonSphere
+            // 
+            this.buttonSphere.Location = new System.Drawing.Point(696, 30);
+            this.buttonSphere.Name = "buttonSphere";
+            this.buttonSphere.Size = new System.Drawing.Size(75, 23);
+            this.buttonSphere.TabIndex = 3;
+            this.buttonSphere.Text = "Sphere";
+            this.buttonSphere.UseVisualStyleBackColor = true;
+            // 
+            // buttonHalfSphere
+            // 
+            this.buttonHalfSphere.Location = new System.Drawing.Point(862, 31);
+            this.buttonHalfSphere.Name = "buttonHalfSphere";
+            this.buttonHalfSphere.Size = new System.Drawing.Size(119, 23);
+            this.buttonHalfSphere.TabIndex = 4;
+            this.buttonHalfSphere.Text = "Half Sphere";
+            this.buttonHalfSphere.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,6 +229,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -191,6 +248,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button buttonHalfSphere;
+        private System.Windows.Forms.Button buttonSphere;
+        private System.Windows.Forms.Button buttonCylinder;
+        private System.Windows.Forms.Button buttonCone;
+        private System.Windows.Forms.Button buttonCube;
     }
 }
 
