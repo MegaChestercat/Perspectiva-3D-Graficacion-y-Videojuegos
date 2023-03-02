@@ -19,11 +19,8 @@ namespace Graphic_Engine
             this.height = height;
 
             top = new PointF3D(0,0, height);
-            /*
-            top.X = 0;
-            top.Y = 0;
-            top.Z = height;*/
-            Pizza pizzaa = new Pizza(radious, ref mesh);
+
+            Pizza pizzaa = new Pizza(radious,0, ref mesh);
             int triangleNumber = mesh.Figures.Count;
 
             for(int i = 0; i < triangleNumber; i++)

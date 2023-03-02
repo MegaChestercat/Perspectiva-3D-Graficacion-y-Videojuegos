@@ -9,12 +9,13 @@ namespace Graphic_Engine
     public class Pizza
     {
         public int radious;
-        public Pizza(int rad, ref Mesh mesh)
+        public int height;
+        public Pizza(int rad,int height, ref Mesh mesh)
         {
             this.radious = rad;
+            this.height = height;
             
             int rebanadas = 20;
-            int height = 0;
             double anguloInicial = 0;
             double anguloFinal = (360 / rebanadas) * (Math.PI / 180);
 

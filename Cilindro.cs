@@ -21,11 +21,11 @@ namespace Graphic_Engine
             //top = new PointF3D(0, 0, height);
 
             //Pizza de abajo 
-            Pizza pizzaB = new Pizza(radious, ref mesh);
+            Pizza pizzaB = new Pizza(radious,height, ref mesh);
             
             
             //Pizza de arriba
-            Pizza pizzaT = new Pizza(radious, ref mesh);
+            Pizza pizzaT = new Pizza(radious,height, ref mesh);
 
         }
     }
