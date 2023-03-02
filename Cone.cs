@@ -16,7 +16,9 @@ namespace Graphic_Engine
             this.radious = radious;
             this.height = height;
             
-            
+            top.X = 0;
+            top.Y = 0;
+            top.Z = height;
             //Pizza pizzaa = new Pizza(radious,mesh);
 
     }
