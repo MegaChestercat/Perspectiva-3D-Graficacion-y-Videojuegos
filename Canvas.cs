@@ -236,7 +236,7 @@ namespace Graphic_Engine
         public void RotationX()
         {
 
-            for(int i = 0; i < 12; i++)
+            for(int i = 0; i < mesh.Figures.Count; i++)
             {
                 for(int j = 0; j < 3; j++)
                 {
@@ -244,7 +244,7 @@ namespace Graphic_Engine
                 }
             }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
                 line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
@@ -257,7 +257,7 @@ namespace Graphic_Engine
 
         public void RotationY()
         {
-            for(int i =0; i < 12; i++)
+            for(int i =0; i < mesh.Figures.Count; i++)
             {
                 for(int j = 0; j < 3; j++)
                 {
@@ -265,7 +265,7 @@ namespace Graphic_Engine
                 }
             }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
                 line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
@@ -279,7 +279,7 @@ namespace Graphic_Engine
         public void RotationZ()
         {
 
-            for(int i = 0; i < 12; i++)
+            for(int i = 0; i < mesh.Figures.Count; i++)
             {
                 for(int j = 0; j < 3; j++)
                 {
@@ -287,7 +287,7 @@ namespace Graphic_Engine
                 }
             }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
                 line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
