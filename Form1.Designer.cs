@@ -36,15 +36,22 @@
             this.rotBTN3 = new System.Windows.Forms.Button();
             this.rotBTN4 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // PCT_CANVAS
             // 
             this.PCT_CANVAS.BackColor = System.Drawing.Color.Black;
-            this.PCT_CANVAS.Location = new System.Drawing.Point(39, 28);
+            this.PCT_CANVAS.Location = new System.Drawing.Point(72, 46);
             this.PCT_CANVAS.Name = "PCT_CANVAS";
-            this.PCT_CANVAS.Size = new System.Drawing.Size(1100, 599);
+            this.PCT_CANVAS.Size = new System.Drawing.Size(1021, 531);
             this.PCT_CANVAS.TabIndex = 0;
             this.PCT_CANVAS.TabStop = false;
             // 
@@ -54,7 +61,7 @@
             // 
             // rotBTN
             // 
-            this.rotBTN.Location = new System.Drawing.Point(1158, 57);
+            this.rotBTN.Location = new System.Drawing.Point(36, 32);
             this.rotBTN.Name = "rotBTN";
             this.rotBTN.Size = new System.Drawing.Size(116, 69);
             this.rotBTN.TabIndex = 1;
@@ -64,7 +71,7 @@
             // 
             // rotBTN2
             // 
-            this.rotBTN2.Location = new System.Drawing.Point(1158, 163);
+            this.rotBTN2.Location = new System.Drawing.Point(36, 138);
             this.rotBTN2.Name = "rotBTN2";
             this.rotBTN2.Size = new System.Drawing.Size(116, 69);
             this.rotBTN2.TabIndex = 2;
@@ -74,7 +81,7 @@
             // 
             // rotBTN3
             // 
-            this.rotBTN3.Location = new System.Drawing.Point(1158, 268);
+            this.rotBTN3.Location = new System.Drawing.Point(36, 243);
             this.rotBTN3.Name = "rotBTN3";
             this.rotBTN3.Size = new System.Drawing.Size(116, 69);
             this.rotBTN3.TabIndex = 3;
@@ -84,7 +91,7 @@
             // 
             // rotBTN4
             // 
-            this.rotBTN4.Location = new System.Drawing.Point(1158, 374);
+            this.rotBTN4.Location = new System.Drawing.Point(36, 349);
             this.rotBTN4.Name = "rotBTN4";
             this.rotBTN4.Size = new System.Drawing.Size(116, 69);
             this.rotBTN4.TabIndex = 4;
@@ -95,12 +102,62 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1145, 484);
+            this.label1.Location = new System.Drawing.Point(23, 459);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 96);
+            this.label1.Size = new System.Drawing.Size(141, 96);
             this.label1.TabIndex = 5;
             this.label1.Text = "To start using the \nprogram you can click \non any of the buttons \nof above to see" +
     " how \nthe cube can rotate \non different axis.";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rotBTN2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.rotBTN);
+            this.panel1.Controls.Add(this.rotBTN4);
+            this.panel1.Controls.Add(this.rotBTN3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(1093, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 673);
+            this.panel1.TabIndex = 6;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.panel5);
+            this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.panel3);
+            this.panel2.Controls.Add(this.PCT_CANVAS);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1093, 673);
+            this.panel2.TabIndex = 7;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 573);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1093, 100);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1093, 46);
+            this.panel4.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.Cursor = System.Windows.Forms.Cursors.SizeWE;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 46);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(75, 527);
+            this.panel5.TabIndex = 3;
             // 
             // Form1
             // 
@@ -108,17 +165,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(1293, 673);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.rotBTN4);
-            this.Controls.Add(this.rotBTN3);
-            this.Controls.Add(this.rotBTN2);
-            this.Controls.Add(this.rotBTN);
-            this.Controls.Add(this.PCT_CANVAS);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "3D Graphical Engine";
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -131,6 +186,11 @@
         private System.Windows.Forms.Button rotBTN3;
         private System.Windows.Forms.Button rotBTN4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 
