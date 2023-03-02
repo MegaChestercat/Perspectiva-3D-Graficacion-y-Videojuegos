@@ -219,7 +219,7 @@ namespace Graphic_Engine
                 mesh.Figures[i].Pts2D[2] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[2].X / (3 - mesh.Figures[i].Pts[2].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[2].Y / (3 - mesh.Figures[i].Pts[2].Z)))));
             }
 
-            cone1.top2D = new Point((int)(hWidth + (150 * (cone1.top.X / (3 - cone1.top.Z)))), (int)(hHeight + (150 * (cone1.top.Y / (3 - cone1.top.Z)))));
+            //cone1.top2D = new Point((int)(hWidth + (150 * (cone1.top.X / (3 - cone1.top.Z)))), (int)(hHeight + (150 * (cone1.top.Y / (3 - cone1.top.Z)))));
 
             for (int i = 0; i < mesh.Figures.Count; i++)
             {
@@ -227,9 +227,9 @@ namespace Graphic_Engine
                 {
                     //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
                     canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
-                    canvas.DrawLine(mesh.Figures[i].Pts2D[0], cone1.top2D, Color.Red);
-                    canvas.DrawLine(mesh.Figures[i].Pts2D[1], cone1.top2D, Color.Red);
-                    canvas.DrawLine(mesh.Figures[i].Pts2D[2], cone1.top2D, Color.Red);
+                    //canvas.DrawLine(mesh.Figures[i].Pts2D[0], cone1.top2D, Color.Red);
+                    //canvas.DrawLine(mesh.Figures[i].Pts2D[1], cone1.top2D, Color.Red);
+                    //canvas.DrawLine(mesh.Figures[i].Pts2D[2], cone1.top2D, Color.Red);
                 }
             }
            
@@ -250,7 +250,7 @@ namespace Graphic_Engine
                 }
             }
 
-            cone1.top = new PointF3D(m.rotMatrix_X[0, 0] * cone1.top.X, (m.rotMatrix_X[1, 1] * cone1.top.Y) + (m.rotMatrix_X[1, 2] * cone1.top.Z), (m.rotMatrix_X[2, 1] * cone1.top.Y) + (m.rotMatrix_X[2, 2] * cone1.top.Z));
+            //cone1.top = new PointF3D(m.rotMatrix_X[0, 0] * cone1.top.X, (m.rotMatrix_X[1, 1] * cone1.top.Y) + (m.rotMatrix_X[1, 2] * cone1.top.Z), (m.rotMatrix_X[2, 1] * cone1.top.Y) + (m.rotMatrix_X[2, 2] * cone1.top.Z));
 
             for (int i = 0; i < mesh.Figures.Count; i++)
             {
@@ -273,6 +273,8 @@ namespace Graphic_Engine
                 }
             }
 
+            //cone1.top = new PointF3D((m.rotMatrix_Y[0, 0] * cone1.top.X) + (m.rotMatrix_Y[0, 2] * cone1.top.Z), m.rotMatrix_Y[1, 1] * cone1.top.Y, ((m.rotMatrix_Y[2, 0] * cone1.top.X) + (m.rotMatrix_Y[2, 2] * cone1.top.Z)));
+
             for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
@@ -294,6 +296,8 @@ namespace Graphic_Engine
                     mesh.Figures[i].Pts[j] = new PointF3D(((m.rotMatrix_Z[0, 0] * mesh.Figures[i].Pts[j].X) + (m.rotMatrix_Z[0, 1] * mesh.Figures[i].Pts[j].Y)), ((m.rotMatrix_Z[1, 0] * mesh.Figures[i].Pts[j].X) + (m.rotMatrix_Z[1, 1] * mesh.Figures[i].Pts[j].Y)), m.rotMatrix_Z[2, 2] * mesh.Figures[i].Pts[j].Z);
                 }
             }
+
+            //cone1.top = new PointF3D(((m.rotMatrix_Z[0, 0] * cone1.top.X) + (m.rotMatrix_Z[0, 1] * cone1.top.Y)), ((m.rotMatrix_Z[1, 0] * cone1.top.X) + (m.rotMatrix_Z[1, 1] * cone1.top.Y)), m.rotMatrix_Z[2, 2] * cone1.top.Z);
 
             for (int i = 0; i < mesh.Figures.Count; i++)
             {
