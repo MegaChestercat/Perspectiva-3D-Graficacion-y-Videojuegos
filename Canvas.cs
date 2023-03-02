@@ -58,6 +58,16 @@ namespace Graphic_Engine
 
             PCT_CANVAS.Invalidate();
         }
+
+        public void pizzaPoint1()
+        {
+            Pizza pizza1 = new Pizza(5);
+            //List<PointF3D> listapPizzas = new List<PointF3D>();
+            //listapPizzas =  pizza1.getPizzas();
+
+            //foreach(lis)
+        }
+
         public void Cube() //This method is in charge of creating and defining all the faces of the cube that will be saved on an object of the type mesh.
         {
             
