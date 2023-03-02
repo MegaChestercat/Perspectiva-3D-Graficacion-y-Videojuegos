@@ -62,7 +62,7 @@ namespace Graphic_Engine
 
         public void pizzaPoint1()
         {
-            cone1 = new Cone(1, 1, ref mesh);
+            cone1 = new Cone(1, 2, ref mesh);
 
             line1 = new PointF3D[mesh.Figures.Count];
             line2 = new PointF3D[mesh.Figures.Count];
