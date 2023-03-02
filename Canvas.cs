@@ -18,6 +18,7 @@ namespace Graphic_Engine
         PictureBox PCT_CANVAS;
         int hWidth, hHeight;
         Point a, b, c, d;
+        Pizza p1;
 
         Scene scene;
         Mesh mesh; //The mesh will save all the faces of the cube, including all of its vertices.
@@ -193,7 +194,7 @@ namespace Graphic_Engine
 
             for(int i = 0; i < 12; i++)
             {
-                if (normal[i].Z < 0)
+                //if (normal[i].Z < 0)
                     canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
             }
            
