@@ -23,7 +23,7 @@ namespace Graphic_Engine
         Mesh mesh; //The mesh will save all the faces of the cube, including all of its vertices.
         Triangle f1, f2, f3, f4, f5, f6, f1D, f2D, f3D, f4D, f5D, f6D; 
         Matrix m;
-
+        PointF3D camera;
         PointF3D[] normal, line1, line2;
         Double[] l;
 
@@ -50,8 +50,8 @@ namespace Graphic_Engine
 
             a = new Point(hWidth - hWidth, hHeight);
             b = new Point(hWidth + hWidth, hHeight);
-            c = new Point((int)hWidth, (int)hHeight - hHeight);
-            d = new Point((int)hWidth, (int)hHeight + hHeight);
+            c = new Point(hWidth, hHeight - hHeight);
+            d = new Point(hWidth, hHeight + hHeight);
 
             canvas.DrawLine(a, b, Color.Gray);
             canvas.DrawLine(c, d, Color.Gray);
@@ -79,90 +79,91 @@ namespace Graphic_Engine
             line2 = new PointF3D[12];
             normal = new PointF3D[12];
             l = new double[12];
+            camera = new PointF3D(0, 0, 3);
 
             //Front face
 
-            
+            f1.Add(new PointF3D(-1, 1, 1));
             f1.Add(new PointF3D(- 1, - 1, 1));
-            f1.Add(new PointF3D(1, - 1, 1));
             f1.Add(new PointF3D(1, 1, 1));
 
             mesh.Figures.Add(f1);
 
-            f1D.Add(new PointF3D(1, 1, 1));
-            f1D.Add(new PointF3D(-1, 1, 1));
             f1D.Add(new PointF3D(-1, -1, 1));
+            f1D.Add(new PointF3D(1, -1, 1));
+            f1D.Add(new PointF3D(1, 1, 1));
+            
 
             mesh.Figures.Add(f1D);
 
             //Up face
             f2.Add(new PointF3D(- 1, - 1, 1));
             f2.Add(new PointF3D(- 1, - 1, -1));
-            f2.Add(new PointF3D(1, - 1, -1));
+            f2.Add(new PointF3D(1, - 1, 1));
 
             mesh.Figures.Add(f2);
 
-            f2D.Add(new PointF3D(-1, -1, 1));
-            f2D.Add(new PointF3D(1, -1, 1)); //
-            f2D.Add(new PointF3D(1, -1, -1));
+            f2D.Add(new PointF3D(-1, -1, -1));
+            f2D.Add(new PointF3D(1, -1, -1)); //
+            f2D.Add(new PointF3D(1, -1, 1));
 
             mesh.Figures.Add(f2D);
 
             //Left face
 
-            f3.Add(new PointF3D(- 1, - 1, 1));
+            f3.Add(new PointF3D(- 1, 1, -1));
             f3.Add(new PointF3D(- 1, - 1, -1));
-            f3.Add(new PointF3D(- 1, + 1, -1));
+            f3.Add(new PointF3D(- 1, 1, 1));
 
             mesh.Figures.Add(f3);
 
-            f3D.Add(new PointF3D(-1, +1, -1));
-            f3D.Add(new PointF3D(-1, +1, 1)); //
-            f3D.Add(new PointF3D(-1, -1, 1));
+            f3D.Add(new PointF3D(-1, -1, -1));
+            f3D.Add(new PointF3D(-1, -1, 1)); //
+            f3D.Add(new PointF3D(-1, 1, 1));
 
             mesh.Figures.Add(f3D);
 
             //Back face
 
-            f4.Add(new PointF3D(- 1, - 1, -1)); 
+            f4.Add(new PointF3D(1, 1, -1)); 
             f4.Add(new PointF3D(1, - 1, -1));
-            f4.Add(new PointF3D(1, 1, -1));
+            f4.Add(new PointF3D(-1, 1, -1));
             
 
             mesh.Figures.Add(f4);
 
-            f4D.Add(new PointF3D(1, 1, -1));
-            f4D.Add(new PointF3D(-1, 1, -1)); //
-            f4D.Add(new PointF3D(-1, -1, -1));
+            f4D.Add(new PointF3D(1, -1, -1));
+            f4D.Add(new PointF3D(-1, -1, -1)); //
+            f4D.Add(new PointF3D(-1, 1, -1));
 
             mesh.Figures.Add(f4D);
 
             //Right face
 
+            f5.Add(new PointF3D(1, 1, 1));
             f5.Add(new PointF3D(1, - 1, 1));
-            f5.Add(new PointF3D(1, - 1, -1));
             f5.Add(new PointF3D(1, 1, -1));
 
             mesh.Figures.Add(f5);
 
-            f5D.Add(new PointF3D(1, 1, -1));
-            f5D.Add(new PointF3D(1, 1, 1)); //
             f5D.Add(new PointF3D(1, -1, 1));
+            f5D.Add(new PointF3D(1, -1, -1)); //
+            f5D.Add(new PointF3D(1, 1, -1));
 
             mesh.Figures.Add(f5D);
 
             //Bottom face
 
-            f6.Add(new PointF3D(- 1, 1, 1));
             f6.Add(new PointF3D(- 1, 1, -1));
+            f6.Add(new PointF3D(- 1, 1, 1));
             f6.Add(new PointF3D(1, 1, -1));
             
 
             mesh.Figures.Add(f6);
 
-            f6D.Add(new PointF3D(1, 1, -1));
-            f6D.Add(new PointF3D(1, 1, 1)); //
             f6D.Add(new PointF3D(-1, 1, 1));
+            f6D.Add(new PointF3D(1, 1, 1)); //
+            f6D.Add(new PointF3D(1, 1, -1));
 
             mesh.Figures.Add(f6D);
 
@@ -193,8 +194,9 @@ namespace Graphic_Engine
 
             for(int i = 0; i < 12; i++)
             {
-                if (normal[i].Z < 0)
-                    canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
+                if (normal[i].X * (mesh.Figures[i].Pts[0].X - camera.X) + normal[i].Y * (mesh.Figures[i].Pts[0].Y - camera.Y) + normal[i].Z * (mesh.Figures[i].Pts[0].Z - camera.Z) < 0)
+                    //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
+                    canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
             }
            
             PCT_CANVAS.Invalidate();
