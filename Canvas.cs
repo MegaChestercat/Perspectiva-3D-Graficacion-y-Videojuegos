@@ -26,6 +26,7 @@ namespace Graphic_Engine
         PointF3D camera;
         PointF3D[] normal, line1, line2;
         Double[] l;
+        Cone cone1;
 
         public Canvas(PictureBox pct)
         {
@@ -61,8 +62,8 @@ namespace Graphic_Engine
 
         public void pizzaPoint1()
         {
-
-            Pizza pizza1 = new Pizza(1, ref mesh);
+            cone1 = new Cone(1, 1, ref mesh);
+            //Pizza pizza1 = new Pizza(1, ref mesh);
             //List<PointF3D> listapPizzas = new List<PointF3D>();
             //listapPizzas =  pizza1.getPizzas();
 
@@ -216,15 +217,18 @@ namespace Graphic_Engine
                 mesh.Figures[i].Pts2D[0] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[0].X / (3 - mesh.Figures[i].Pts[0].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[0].Y / (3 - mesh.Figures[i].Pts[0].Z)))));
                 mesh.Figures[i].Pts2D[1] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[1].X / (3 - mesh.Figures[i].Pts[1].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[1].Y / (3 - mesh.Figures[i].Pts[1].Z)))));
                 mesh.Figures[i].Pts2D[2] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[2].X / (3 - mesh.Figures[i].Pts[2].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[2].Y / (3 - mesh.Figures[i].Pts[2].Z)))));
-                
-
             }
 
-            for(int i = 0; i < mesh.Figures.Count; i++)
+            cone1.top2D = new Point((int)(hWidth + (150 * (cone1.top.X / (3 - cone1.top.Z)))), (int)(hHeight + (150 * (cone1.top.Y / (3 - cone1.top.Z)))));
+
+            for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 if (normal[i].X * (mesh.Figures[i].Pts[0].X - camera.X) + normal[i].Y * (mesh.Figures[i].Pts[0].Y - camera.Y) + normal[i].Z * (mesh.Figures[i].Pts[0].Z - camera.Z) < 0)
+                {
                     //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
                     canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
+                    canvas.DrawLine(mesh.Figures[i].Pts2D[0], cone1.top2D, Color.Red);
+                }
             }
            
             PCT_CANVAS.Invalidate();
@@ -243,6 +247,8 @@ namespace Graphic_Engine
                     mesh.Figures[i].Pts[j] = new PointF3D(m.rotMatrix_X[0, 0] * mesh.Figures[i].Pts[j].X, (m.rotMatrix_X[1, 1] * mesh.Figures[i].Pts[j].Y) + (m.rotMatrix_X[1, 2] * mesh.Figures[i].Pts[j].Z), (m.rotMatrix_X[2, 1] * mesh.Figures[i].Pts[j].Y) + (m.rotMatrix_X[2, 2] * mesh.Figures[i].Pts[j].Z));
                 }
             }
+
+            cone1.top = new PointF3D(m.rotMatrix_X[0, 0] * cone1.top.X, (m.rotMatrix_X[1, 1] * cone1.top.Y) + (m.rotMatrix_X[1, 2] * cone1.top.Z), (m.rotMatrix_X[2, 1] * cone1.top.Y) + (m.rotMatrix_X[2, 2] * cone1.top.Z));
 
             for (int i = 0; i < mesh.Figures.Count; i++)
             {
