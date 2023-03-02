@@ -10,7 +10,7 @@ namespace Graphic_Engine
     {
         public int radious;
         //List<PointF3D> points = new List<PointF3D>();
-        public Pizza(int rad)
+        public Pizza(int rad, ref Mesh mesh)
         {
             this.radious = rad;
             
@@ -33,6 +33,7 @@ namespace Graphic_Engine
                 //points.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), 0));
                 //points.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), 0));
 
+                mesh.Figures.Add(triangulo);
 
                 anguloInicial = anguloFinal;
                 anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);

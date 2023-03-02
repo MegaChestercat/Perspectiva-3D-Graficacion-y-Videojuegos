@@ -61,11 +61,29 @@ namespace Graphic_Engine
 
         public void pizzaPoint1()
         {
-            Pizza pizza1 = new Pizza(5);
+
+            Pizza pizza1 = new Pizza(1, ref mesh);
             //List<PointF3D> listapPizzas = new List<PointF3D>();
             //listapPizzas =  pizza1.getPizzas();
 
             //foreach(lis)
+
+            line1 = new PointF3D[mesh.Figures.Count];
+            line2 = new PointF3D[mesh.Figures.Count];
+            normal = new PointF3D[mesh.Figures.Count];
+            l = new double[mesh.Figures.Count];
+            camera = new PointF3D(0, 0, 3);
+
+            for (int i = 0; i < mesh.Figures.Count; i++)
+            {
+                line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
+                line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
+                normal[i] = new PointF3D(line1[i].Y * line2[i].Z - line1[i].Z * line2[i].Y, line1[i].Z * line2[i].X - line1[i].X * line2[i].Z, line1[i].X * line2[i].Y - line1[i].Y * line2[i].X);
+                l[i] = Math.Sqrt((normal[i].X * normal[i].X) + (normal[i].Y * normal[i].Y) + (normal[i].Z * normal[i].Z));
+                normal[i].X /= (float)l[i]; normal[i].Y /= (float)l[i]; normal[i].Z /= (float)l[i];
+            }
+
+            Render();
         }
 
         public void Cube() //This method is in charge of creating and defining all the faces of the cube that will be saved on an object of the type mesh.
@@ -193,7 +211,7 @@ namespace Graphic_Engine
             canvas.FastClear();
             drawMidPoint();
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < mesh.Figures.Count; i++)
             {
                 mesh.Figures[i].Pts2D[0] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[0].X / (3 - mesh.Figures[i].Pts[0].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[0].Y / (3 - mesh.Figures[i].Pts[0].Z)))));
                 mesh.Figures[i].Pts2D[1] = new Point((int)(hWidth + (150 * (mesh.Figures[i].Pts[1].X / (3 - mesh.Figures[i].Pts[1].Z)))), (int)(hHeight + (150 * (mesh.Figures[i].Pts[1].Y / (3 - mesh.Figures[i].Pts[1].Z)))));
@@ -202,7 +220,7 @@ namespace Graphic_Engine
 
             }
 
-            for(int i = 0; i < 12; i++)
+            for(int i = 0; i < mesh.Figures.Count; i++)
             {
                 if (normal[i].X * (mesh.Figures[i].Pts[0].X - camera.X) + normal[i].Y * (mesh.Figures[i].Pts[0].Y - camera.Y) + normal[i].Z * (mesh.Figures[i].Pts[0].Z - camera.Z) < 0)
                     //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
