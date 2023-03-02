@@ -21,7 +21,7 @@ namespace Graphic_Engine
             //top = new PointF3D(0, 0, height);
 
             //Pizza base 
-            Pizza pizzaB = new Pizza(radious,height, ref mesh);
+            Pizza pizzaB = new Pizza(radious,0, ref mesh);
             
             
             //Pizza techo
