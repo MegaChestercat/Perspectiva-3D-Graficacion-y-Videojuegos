@@ -228,6 +228,8 @@ namespace Graphic_Engine
                     //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.White);
                     canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
                     canvas.DrawLine(mesh.Figures[i].Pts2D[0], cone1.top2D, Color.Red);
+                    canvas.DrawLine(mesh.Figures[i].Pts2D[1], cone1.top2D, Color.Red);
+                    canvas.DrawLine(mesh.Figures[i].Pts2D[2], cone1.top2D, Color.Red);
                 }
             }
            
