@@ -18,8 +18,6 @@ namespace Graphic_Engine
             this.radious = radious;
             this.height = height;
 
-            //top = new PointF3D(0, 0, height);
-
             //Pizza base 
             Pizza pizzaB = new Pizza(radious,0, ref mesh);
             int totalTrianglesB = mesh.Figures.Count;
@@ -28,7 +26,6 @@ namespace Graphic_Engine
             Pizza pizzaT = new Pizza(radious,height, ref mesh);
 
             int triangleNumber = mesh.Figures.Count;
-
 
             for (int i = 0; i < triangleNumber ; i++)
             {
