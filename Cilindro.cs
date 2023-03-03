@@ -22,11 +22,30 @@ namespace Graphic_Engine
 
             //Pizza base 
             Pizza pizzaB = new Pizza(radious,0, ref mesh);
-            
-            
+            int totalTrianglesB = mesh.Figures.Count;
+
             //Pizza techo
             Pizza pizzaT = new Pizza(radious,height, ref mesh);
 
+            int triangleNumber = mesh.Figures.Count;
+
+
+            for (int i = 0; i < triangleNumber ; i++)
+            {
+                Triangle t = new Triangle();
+
+                //De base a techo 
+                t.Add(mesh.Figures[i].Pts[1]);
+                t.Add(mesh.Figures[i + totalTrianglesB].Pts[1]);
+                t.Add(mesh.Figures[i].Pts[2]);
+
+                //De techo a base
+                t.Add(mesh.Figures[i+totalTrianglesB].Pts[1]);
+                t.Add(mesh.Figures[i].Pts[1]);
+                t.Add(mesh.Figures[i+totalTrianglesB].Pts[2]);
+
+                mesh.Figures.Add(t);
+            }
         }
     }
 }

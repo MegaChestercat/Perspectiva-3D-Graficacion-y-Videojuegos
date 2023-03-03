@@ -83,7 +83,7 @@ namespace Graphic_Engine
 
         public void cylinderPoint1()
         {
-            Cilindro cylinder = new Cilindro(1, 1, ref mesh);
+            Cilindro cylinder = new Cilindro(1, 2, ref mesh);
 
             line1 = new PointF3D[mesh.Figures.Count];
             line2 = new PointF3D[mesh.Figures.Count];
@@ -97,7 +97,6 @@ namespace Graphic_Engine
                 line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
                 normal[i] = new PointF3D(line1[i].Y * line2[i].Z - line1[i].Z * line2[i].Y, line1[i].Z * line2[i].X - line1[i].X * line2[i].Z, line1[i].X * line2[i].Y - line1[i].Y * line2[i].X);
                 l[i] = Math.Sqrt((normal[i].X * normal[i].X) + (normal[i].Y * normal[i].Y) + (normal[i].Z * normal[i].Z));
-                normal[i].X /= (float)l[i]; normal[i].Y /= (float)l[i]; normal[i].Z /= (float)l[i];
             }
 
             Render();
