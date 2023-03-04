@@ -102,6 +102,28 @@ namespace Graphic_Engine
             Render();
         }
 
+        public void spherePoint1()
+        {
+            //Cilindro cylinder = new Cilindro(1, 2, ref mesh);
+            Sphere sphere = new Sphere(2, 40, ref mesh);
+
+            line1 = new PointF3D[mesh.Figures.Count];
+            line2 = new PointF3D[mesh.Figures.Count];
+            normal = new PointF3D[mesh.Figures.Count];
+            l = new double[mesh.Figures.Count];
+            camera = new PointF3D(0, 0, 3);
+
+            for (int i = 0; i < mesh.Figures.Count; i++)
+            {
+                line1[i] = new PointF3D(mesh.Figures[i].Pts[1].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[1].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[1].Z - mesh.Figures[i].Pts[0].Z);
+                line2[i] = new PointF3D(mesh.Figures[i].Pts[2].X - mesh.Figures[i].Pts[0].X, mesh.Figures[i].Pts[2].Y - mesh.Figures[i].Pts[0].Y, mesh.Figures[i].Pts[2].Z - mesh.Figures[i].Pts[0].Z);
+                normal[i] = new PointF3D(line1[i].Y * line2[i].Z - line1[i].Z * line2[i].Y, line1[i].Z * line2[i].X - line1[i].X * line2[i].Z, line1[i].X * line2[i].Y - line1[i].Y * line2[i].X);
+                l[i] = Math.Sqrt((normal[i].X * normal[i].X) + (normal[i].Y * normal[i].Y) + (normal[i].Z * normal[i].Z));
+            }
+
+            Render();
+        }
+
         public void Cube() //This method is in charge of creating and defining all the faces of the cube that will be saved on an object of the type mesh.
         {
             

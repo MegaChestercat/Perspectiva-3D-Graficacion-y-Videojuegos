@@ -19,11 +19,11 @@ namespace Graphic_Engine
             this.height = height;
 
             //Pizza base 
-            Pizza pizzaB = new Pizza(radious,0, ref mesh);
+            Pizza pizzaB = new Pizza(radious,-1, ref mesh);
             int totalTrianglesB = mesh.Figures.Count;
 
             //Pizza techo
-            Pizza pizzaT = new Pizza(radious,height, ref mesh);
+            Pizza pizzaT = new Pizza(radious,height -1, ref mesh);
 
             int triangleNumber = mesh.Figures.Count;
 

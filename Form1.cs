@@ -24,7 +24,8 @@ namespace Graphic_Engine
             canvas.drawMidPoint(); //This will create the midpoint lines
             //canvas.Cube(); //This method will create the initial cube
             //canvas.pizzaPoint1();
-            canvas.cylinderPoint1();
+            //canvas.cylinderPoint1();
+            canvas.spherePoint1();
         }
 
         private void rotBTN_Click(object sender, EventArgs e)
