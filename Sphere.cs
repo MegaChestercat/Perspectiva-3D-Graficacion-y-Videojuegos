@@ -22,8 +22,6 @@ namespace Graphic_Engine
                 float x = (float)Math.Cos((Math.PI / 180) * (angle / 2)) * radius;
                 float y = (float)Math.Sin((Math.PI / 180) * (angle / 2)) * radius;
 
-
-                // Create the triangles that form the surface of the sphere
                 for (int i = 0; i < numSegments + 1; i++)
                 {
 
@@ -61,7 +59,7 @@ namespace Graphic_Engine
                                     Triangle t = new Triangle();
                                     t.Add(p3);
                                     t.Add(p2);
-                                    t.Add(p3);
+                                    t.Add(p1);
 
                                     mesh.Figures.Add(t);
                     }
