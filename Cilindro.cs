@@ -30,18 +30,27 @@ namespace Graphic_Engine
             for (int i = 0; i < triangleNumber ; i++)
             {
                 Triangle t = new Triangle();
+                
 
                 //De base a techo 
                 t.Add(mesh.Figures[i].Pts[1]);
                 t.Add(mesh.Figures[i + totalTrianglesB].Pts[1]);
                 t.Add(mesh.Figures[i].Pts[2]);
 
-                //De techo a base
-                t.Add(mesh.Figures[i+totalTrianglesB].Pts[1]);
-                t.Add(mesh.Figures[i].Pts[1]);
-                t.Add(mesh.Figures[i+totalTrianglesB].Pts[2]);
-
                 mesh.Figures.Add(t);
+            }
+
+
+            for (int i = 0; i < triangleNumber; i++)
+            {
+                Triangle t2 = new Triangle();
+
+                //De techo a base
+                t2.Add(mesh.Figures[i + totalTrianglesB].Pts[1]);
+                t2.Add(mesh.Figures[i].Pts[1]);
+                t2.Add(mesh.Figures[i + totalTrianglesB].Pts[2]);
+
+                mesh.Figures.Add(t2);
             }
         }
     }
