@@ -25,7 +25,8 @@ namespace Graphic_Engine
             //canvas.Cube(); //This method will create the initial cube
             //canvas.pizzaPoint1();
             //canvas.cylinderPoint1();
-            canvas.spherePoint1();
+            //canvas.spherePoint1();
+            canvas.halfSpherePoint1();
         }
 
         private void rotBTN_Click(object sender, EventArgs e)
