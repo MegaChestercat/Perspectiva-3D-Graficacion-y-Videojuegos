@@ -50,6 +50,7 @@
     <Compile Include="Canvas.cs" />
     <Compile Include="Cilindro.cs" />
     <Compile Include="Cone.cs" />
+    <Compile Include="HalfSphere.cs" />
     <Compile Include="Pizza.cs" />
     <Compile Include="Scene.cs" />
     <Compile Include="Sphere.cs" />
