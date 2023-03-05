@@ -16,17 +16,16 @@ namespace Graphic_Engine
         Canvas canvas;
         bool x, y, z, all = false;
 
-
         public Form1()
         {
             InitializeComponent();
             canvas = new Canvas(PCT_CANVAS);
             canvas.drawMidPoint(); //This will create the midpoint lines
             //canvas.Cube(); //This method will create the initial cube
-            //canvas.pizzaPoint1();
+            canvas.pizzaPoint1();
             //canvas.cylinderPoint1();
             //canvas.spherePoint1();
-            canvas.halfSpherePoint1();
+            //canvas.halfSpherePoint1();
         }
 
         private void rotBTN_Click(object sender, EventArgs e)

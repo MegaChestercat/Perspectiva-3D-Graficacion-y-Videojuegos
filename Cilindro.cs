@@ -9,21 +9,15 @@ namespace Graphic_Engine
 {
     public class Cilindro
     {
-        private int radious;
-        private int height;
-        public PointF3D top;
-        public Point top2D;
         public Cilindro(int radious, int height, ref Mesh mesh)
         {
-            this.radious = radious;
-            this.height = height;
 
             //Pizza base 
-            Pizza pizzaB = new Pizza(radious,-1, ref mesh);
+            Pizza pizzaB = new Pizza(radious,-1, ref mesh, false);
             int totalTrianglesB = mesh.Figures.Count;
 
             //Pizza techo
-            Pizza pizzaT = new Pizza(radious,height -1, ref mesh);
+            Pizza pizzaT = new Pizza(radious,height -1, ref mesh, true);
 
             int triangleNumber = mesh.Figures.Count;
 

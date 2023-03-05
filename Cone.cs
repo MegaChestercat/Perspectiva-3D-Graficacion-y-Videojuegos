@@ -9,18 +9,13 @@ namespace Graphic_Engine
 {
     public class Cone
     {
-        private int radious;
-        private int height;
         public PointF3D top;
-        public Point top2D;
-        public Cone(int radious, int height, ref Mesh mesh) 
-        {
-            this.radious = radious;
-            this.height = height;
 
+        public Cone(int radius, int height, ref Mesh mesh) 
+        {
             top = new PointF3D(0,0, height);
 
-            Pizza pizzaa = new Pizza(radious,0, ref mesh);
+            Pizza pizzaa = new Pizza(radius,0, ref mesh, false);
             int triangleNumber = mesh.Figures.Count;
 
             for(int i = 0; i < triangleNumber; i++)

@@ -10,7 +10,7 @@ namespace Graphic_Engine
     {
         public int radious;
         public int height;
-        public Pizza(int rad,int height, ref Mesh mesh)
+        public Pizza(int rad,int height, ref Mesh mesh, bool front)
         {
             this.radious = rad;
             this.height = height;
@@ -19,18 +19,35 @@ namespace Graphic_Engine
             double anguloInicial = 0;
             double anguloFinal = (360 / rebanadas) * (Math.PI / 180);
 
-
-            for(int i = 0; i< rebanadas; i++)
+            if (front)
             {
-                Triangle triangulo = new Triangle();
-                triangulo.Add(new PointF3D(0, 0, height));
-                triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloInicial)), (float)(radious * Math.Sin(anguloInicial)), height));
-                triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), height));
+                for (int i = 0; i < rebanadas; i++)
+                {
+                    Triangle triangulo = new Triangle();
+                    triangulo.Add(new PointF3D(0, 0, height));
+                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloInicial)), (float)(radious * Math.Sin(anguloInicial)), height));
+                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), height));
 
-                mesh.Figures.Add(triangulo);
+                    mesh.Figures.Add(triangulo);
 
-                anguloInicial = anguloFinal;
-                anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);
+                    anguloInicial = anguloFinal;
+                    anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < rebanadas; i++)
+                {
+                    Triangle triangulo = new Triangle();
+                    triangulo.Add(new PointF3D(0, 0, height));
+                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), height));
+                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloInicial)), (float)(radious * Math.Sin(anguloInicial)), height));
+
+                    mesh.Figures.Add(triangulo);
+
+                    anguloInicial = anguloFinal;
+                    anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);
+                }
             }
         }
 

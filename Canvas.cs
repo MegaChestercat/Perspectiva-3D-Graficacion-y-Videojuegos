@@ -54,8 +54,8 @@ namespace Graphic_Engine
             c = new Point(hWidth, hHeight - hHeight);
             d = new Point(hWidth, hHeight + hHeight);
 
-            //canvas.DrawLine(a, b, Color.Gray);
-            //canvas.DrawLine(c, d, Color.Gray);
+            canvas.DrawLine(a, b, Color.Gray);
+            canvas.DrawLine(c, d, Color.Gray);
 
             PCT_CANVAS.Invalidate();
         }
@@ -282,9 +282,6 @@ namespace Graphic_Engine
                 {
                     //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.LightGreen);
                     canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
-                    //canvas.DrawLine(mesh.Figures[i].Pts2D[0], cone1.top2D, Color.Red);
-                    //canvas.DrawLine(mesh.Figures[i].Pts2D[1], cone1.top2D, Color.Red);
-                    //canvas.DrawLine(mesh.Figures[i].Pts2D[2], cone1.top2D, Color.Red);
                 }
             }
            
