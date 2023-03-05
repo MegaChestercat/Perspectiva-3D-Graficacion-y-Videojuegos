@@ -6,51 +6,43 @@ using System.Threading.Tasks;
 
 namespace Graphic_Engine
 {
-    public class Pizza
+    public class Pizza //This class is in charge of creating a circle/pizza depending on the height, radius, number of triangles/slices, a mesh, and a boolean that indicates if the face of the figure will be looking at the initial front direction or not.
     {
-        public int radious;
-        public int height;
-        public Pizza(int rad,int height, ref Mesh mesh, bool front)
+        public Pizza(int radius,int height, int slices, ref Mesh mesh, bool front)
         {
-            this.radious = rad;
-            this.height = height;
-            
-            int rebanadas = 20;
-            double anguloInicial = 0;
-            double anguloFinal = (360 / rebanadas) * (Math.PI / 180);
+            double initialAngle = 0;
+            double finalAngle = (360 / slices) * (Math.PI / 180);
 
-            if (front)
+            if (front) //This condition is useful so certain figures as the cylinder, cone, or semi-sphere can create the pizza or circle in such a way the normal vector of one face of the figure can go in a certain direction and show up correctly.
             {
-                for (int i = 0; i < rebanadas; i++)
+                for (int i = 0; i < slices; i++) //This loop helps so all the triangles that compose a circle/pizza can be created with a certain rotation angle depending the number of slices that is being used.
                 {
-                    Triangle triangulo = new Triangle();
-                    triangulo.Add(new PointF3D(0, 0, height));
-                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloInicial)), (float)(radious * Math.Sin(anguloInicial)), height));
-                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), height));
+                    Triangle t = new Triangle(); 
+                    t.Add(new PointF3D(0, 0, height));
+                    t.Add(new PointF3D((float)(radius * Math.Cos(initialAngle)), (float)(radius * Math.Sin(initialAngle)), height));
+                    t.Add(new PointF3D((float)(radius * Math.Cos(finalAngle)), (float)(radius * Math.Sin(finalAngle)), height));
 
-                    mesh.Figures.Add(triangulo);
+                    mesh.Figures.Add(t);
 
-                    anguloInicial = anguloFinal;
-                    anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);
+                    initialAngle = finalAngle;
+                    finalAngle += (360.0 / slices) * (Math.PI / 180.0);
                 }
             }
             else
             {
-                for (int i = 0; i < rebanadas; i++)
+                for (int i = 0; i < slices; i++)
                 {
-                    Triangle triangulo = new Triangle();
-                    triangulo.Add(new PointF3D(0, 0, height));
-                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloFinal)), (float)(radious * Math.Sin(anguloFinal)), height));
-                    triangulo.Add(new PointF3D((float)(radious * Math.Cos(anguloInicial)), (float)(radious * Math.Sin(anguloInicial)), height));
+                    Triangle t = new Triangle();
+                    t.Add(new PointF3D(0, 0, height));
+                    t.Add(new PointF3D((float)(radius * Math.Cos(finalAngle)), (float)(radius * Math.Sin(finalAngle)), height));
+                    t.Add(new PointF3D((float)(radius * Math.Cos(initialAngle)), (float)(radius * Math.Sin(initialAngle)), height));
 
-                    mesh.Figures.Add(triangulo);
+                    mesh.Figures.Add(t);
 
-                    anguloInicial = anguloFinal;
-                    anguloFinal += (360.0 / rebanadas) * (Math.PI / 180.0);
+                    initialAngle = finalAngle;
+                    finalAngle += (360.0 / slices) * (Math.PI / 180.0);
                 }
             }
         }
-
-
     }
 }

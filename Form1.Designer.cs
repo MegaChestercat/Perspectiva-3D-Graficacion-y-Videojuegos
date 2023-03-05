@@ -41,22 +41,16 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.buttonHalfSphere = new System.Windows.Forms.Button();
-            this.buttonSphere = new System.Windows.Forms.Button();
-            this.buttonCylinder = new System.Windows.Forms.Button();
-            this.buttonCone = new System.Windows.Forms.Button();
-            this.buttonCube = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // PCT_CANVAS
             // 
             this.PCT_CANVAS.BackColor = System.Drawing.Color.Black;
             this.PCT_CANVAS.Location = new System.Drawing.Point(54, 37);
-            this.PCT_CANVAS.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PCT_CANVAS.Margin = new System.Windows.Forms.Padding(2);
             this.PCT_CANVAS.Name = "PCT_CANVAS";
             this.PCT_CANVAS.Size = new System.Drawing.Size(824, 491);
             this.PCT_CANVAS.TabIndex = 0;
@@ -69,7 +63,7 @@
             // rotBTN
             // 
             this.rotBTN.Location = new System.Drawing.Point(27, 26);
-            this.rotBTN.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rotBTN.Margin = new System.Windows.Forms.Padding(2);
             this.rotBTN.Name = "rotBTN";
             this.rotBTN.Size = new System.Drawing.Size(87, 56);
             this.rotBTN.TabIndex = 1;
@@ -80,7 +74,7 @@
             // rotBTN2
             // 
             this.rotBTN2.Location = new System.Drawing.Point(27, 112);
-            this.rotBTN2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rotBTN2.Margin = new System.Windows.Forms.Padding(2);
             this.rotBTN2.Name = "rotBTN2";
             this.rotBTN2.Size = new System.Drawing.Size(87, 56);
             this.rotBTN2.TabIndex = 2;
@@ -91,7 +85,7 @@
             // rotBTN3
             // 
             this.rotBTN3.Location = new System.Drawing.Point(27, 197);
-            this.rotBTN3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rotBTN3.Margin = new System.Windows.Forms.Padding(2);
             this.rotBTN3.Name = "rotBTN3";
             this.rotBTN3.Size = new System.Drawing.Size(87, 56);
             this.rotBTN3.TabIndex = 3;
@@ -102,7 +96,7 @@
             // rotBTN4
             // 
             this.rotBTN4.Location = new System.Drawing.Point(27, 284);
-            this.rotBTN4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rotBTN4.Margin = new System.Windows.Forms.Padding(2);
             this.rotBTN4.Name = "rotBTN4";
             this.rotBTN4.Size = new System.Drawing.Size(87, 56);
             this.rotBTN4.TabIndex = 4;
@@ -119,7 +113,7 @@
             this.label1.Size = new System.Drawing.Size(114, 78);
             this.label1.TabIndex = 5;
             this.label1.Text = "To start using the \nprogram you can click \non any of the buttons \nof above to see" +
-    " how \nthe cube can rotate \non different axis.";
+    " how \nthe figure(s) can rotate \non different axis.";
             // 
             // panel1
             // 
@@ -130,7 +124,7 @@
             this.panel1.Controls.Add(this.rotBTN3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(878, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 609);
             this.panel1.TabIndex = 6;
@@ -143,7 +137,7 @@
             this.panel2.Controls.Add(this.PCT_CANVAS);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(878, 609);
             this.panel2.TabIndex = 7;
@@ -153,7 +147,7 @@
             this.panel5.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 37);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(56, 491);
             this.panel5.TabIndex = 3;
@@ -162,74 +156,19 @@
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(878, 37);
             this.panel4.TabIndex = 2;
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.buttonHalfSphere);
-            this.panel3.Controls.Add(this.buttonSphere);
-            this.panel3.Controls.Add(this.buttonCylinder);
-            this.panel3.Controls.Add(this.buttonCone);
-            this.panel3.Controls.Add(this.buttonCube);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 528);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(878, 81);
             this.panel3.TabIndex = 1;
-            // 
-            // buttonHalfSphere
-            // 
-            this.buttonHalfSphere.Location = new System.Drawing.Point(646, 25);
-            this.buttonHalfSphere.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonHalfSphere.Name = "buttonHalfSphere";
-            this.buttonHalfSphere.Size = new System.Drawing.Size(89, 19);
-            this.buttonHalfSphere.TabIndex = 4;
-            this.buttonHalfSphere.Text = "Half Sphere";
-            this.buttonHalfSphere.UseVisualStyleBackColor = true;
-            // 
-            // buttonSphere
-            // 
-            this.buttonSphere.Location = new System.Drawing.Point(522, 24);
-            this.buttonSphere.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonSphere.Name = "buttonSphere";
-            this.buttonSphere.Size = new System.Drawing.Size(56, 19);
-            this.buttonSphere.TabIndex = 3;
-            this.buttonSphere.Text = "Sphere";
-            this.buttonSphere.UseVisualStyleBackColor = true;
-            // 
-            // buttonCylinder
-            // 
-            this.buttonCylinder.Location = new System.Drawing.Point(374, 24);
-            this.buttonCylinder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonCylinder.Name = "buttonCylinder";
-            this.buttonCylinder.Size = new System.Drawing.Size(56, 19);
-            this.buttonCylinder.TabIndex = 2;
-            this.buttonCylinder.Text = "Cylinder";
-            this.buttonCylinder.UseVisualStyleBackColor = true;
-            // 
-            // buttonCone
-            // 
-            this.buttonCone.Location = new System.Drawing.Point(235, 24);
-            this.buttonCone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonCone.Name = "buttonCone";
-            this.buttonCone.Size = new System.Drawing.Size(56, 19);
-            this.buttonCone.TabIndex = 1;
-            this.buttonCone.Text = "Cone";
-            this.buttonCone.UseVisualStyleBackColor = true;
-            // 
-            // buttonCube
-            // 
-            this.buttonCube.Location = new System.Drawing.Point(91, 25);
-            this.buttonCube.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.buttonCube.Name = "buttonCube";
-            this.buttonCube.Size = new System.Drawing.Size(56, 19);
-            this.buttonCube.TabIndex = 0;
-            this.buttonCube.Text = "Cube";
-            this.buttonCube.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -239,14 +178,13 @@
             this.ClientSize = new System.Drawing.Size(1028, 609);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "3D Graphical Engine";
             ((System.ComponentModel.ISupportInitialize)(this.PCT_CANVAS)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -265,11 +203,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button buttonHalfSphere;
-        private System.Windows.Forms.Button buttonSphere;
-        private System.Windows.Forms.Button buttonCylinder;
-        private System.Windows.Forms.Button buttonCone;
-        private System.Windows.Forms.Button buttonCube;
     }
 }
 

@@ -6,57 +6,56 @@ using System.Threading.Tasks;
 
 namespace Graphic_Engine
 {
-    public class HalfSphere
+    public class HalfSphere //This class has a similar functioning as the Sphere class, but with the difference that it just makes half of the sphere, rather than a complete one.
     {
         public HalfSphere(float radius, int numSegments, ref Mesh mesh)
         {
-
             for (int i = 0; i < numSegments/2 + 1; i++)
             {
-                float lat0 = (float)Math.PI * (-0.5f + (float)(i - 1) / numSegments);
-                float z0 = (float)Math.Sin(lat0) * radius;
-                float zr0 = (float)Math.Cos(lat0) * radius;
+                float southPoleLatitude = (float)Math.PI * (-0.5f + (float)(i - 1) / numSegments);
+                float south_Z = (float)Math.Sin(southPoleLatitude) * radius;
+                float southRadius_Z = (float)Math.Cos(southPoleLatitude) * radius;
 
-                float lat1 = (float)Math.PI * (-0.5f + (float)i / numSegments);
-                float z1 = (float)Math.Sin(lat1) * radius;
-                float zr1 = (float)Math.Cos(lat1) * radius;
+                float northPoleLatitude = (float)Math.PI * (-0.5f + (float)i / numSegments);
+                float north_Z = (float)Math.Sin(northPoleLatitude) * radius;
+                float northRadius_Z = (float)Math.Cos(northPoleLatitude) * radius;
 
                 for (int j = 0; j < numSegments; j++)
                 {
-                    float lng0 = (float)(2 * Math.PI * (float)(j - 1) / numSegments);
-                    float x0 = (float)Math.Cos(lng0) * zr0;
-                    float y0 = (float)Math.Sin(lng0) * zr0;
+                    float LeftEdgeLng = (float)(2 * Math.PI * (float)(j - 1) / numSegments);
+                    float x1 = (float)Math.Cos(LeftEdgeLng) * southRadius_Z;
+                    float y1 = (float)Math.Sin(LeftEdgeLng) * southRadius_Z;
 
-                    float lng1 = (float)(2 * Math.PI * (float)j / numSegments);
-                    float x1 = (float)Math.Cos(lng1) * zr0;
-                    float y1 = (float)Math.Sin(lng1) * zr0;
+                    float RightEdgeLng = (float)(2 * Math.PI * (float)j / numSegments);
+                    float x2 = (float)Math.Cos(RightEdgeLng) * southRadius_Z;
+                    float y2 = (float)Math.Sin(RightEdgeLng) * southRadius_Z;
 
-                    float x2 = (float)Math.Cos(lng0) * zr1;
-                    float y2 = (float)Math.Sin(lng0) * zr1;
+                    float x3 = (float)Math.Cos(LeftEdgeLng) * northRadius_Z;
+                    float y3 = (float)Math.Sin(LeftEdgeLng) * northRadius_Z;
 
-                    float x3 = (float)Math.Cos(lng1) * zr1;
-                    float y3 = (float)Math.Sin(lng1) * zr1;
+                    float x4 = (float)Math.Cos(RightEdgeLng) * northRadius_Z;
+                    float y4 = (float)Math.Sin(RightEdgeLng) * northRadius_Z;
 
-                    PointF3D p0 = new PointF3D(x0, y0, z0);
-                    PointF3D p1 = new PointF3D(x1, y1, z0);
-                    PointF3D p2 = new PointF3D(x2, y2, z1);
-                    PointF3D p3 = new PointF3D(x3, y3, z1);
-              
+                    PointF3D a = new PointF3D(x1, y1, south_Z);
+                    PointF3D b = new PointF3D(x2, y2, south_Z);
+                    PointF3D c = new PointF3D(x3, y3, north_Z);
+                    PointF3D d = new PointF3D(x4, y4, north_Z);
+
                     if (i == 1)
                     {
                         Triangle t = new Triangle();
-                        t.Add(p3);
-                        t.Add(p2);
-                        t.Add(p1);
+                        t.Add(d);
+                        t.Add(c);
+                        t.Add(b);
 
                         mesh.Figures.Add(t);
                     }
-                    else if(i != 1 && i != 0)
+                    else if(i != 0)
                     {
                         Triangle t = new Triangle();
-                        t.Add(p0);
-                        t.Add(p1);
-                        t.Add(p2);
+                        t.Add(a);
+                        t.Add(b);
+                        t.Add(c);
 
                         mesh.Figures.Add(t);
                     }

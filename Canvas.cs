@@ -60,9 +60,9 @@ namespace Graphic_Engine
             PCT_CANVAS.Invalidate();
         }
 
-        public void pizzaPoint1()
+        public void Cone() //This method generates a cone
         {
-            cone1 = new Cone(1, 2, ref mesh);
+            cone1 = new Cone(1, 2, 20, ref mesh);
             line1 = new PointF3D[mesh.Figures.Count];
             line2 = new PointF3D[mesh.Figures.Count];
             normal = new PointF3D[mesh.Figures.Count];
@@ -81,9 +81,9 @@ namespace Graphic_Engine
             Render();
         }
 
-        public void cylinderPoint1()
+        public void Cylinder() //This method generates a cylinder
         {
-            Cilindro cylinder = new Cilindro(1, 2, ref mesh);
+            Cylinder cylinder = new Cylinder(1, 2, 20, ref mesh);
 
             line1 = new PointF3D[mesh.Figures.Count];
             line2 = new PointF3D[mesh.Figures.Count];
@@ -102,7 +102,7 @@ namespace Graphic_Engine
             Render();
         }
 
-        public void spherePoint1()
+        public void Sphere() //This method generates a sphere
         {
             Sphere sphere = new Sphere(2, 40, ref mesh);
 
@@ -123,9 +123,9 @@ namespace Graphic_Engine
             Render();
         }
 
-        public void halfSpherePoint1()
+        public void SemiSphere() //This method generates a semiphere
         {
-            HalfSphere hsphere = new HalfSphere(2, 40, ref mesh);
+            SemiSpherePizza semisphere = new SemiSpherePizza(2, 0, 40, 2, 40, ref mesh, true);
 
             line1 = new PointF3D[mesh.Figures.Count];
             line2 = new PointF3D[mesh.Figures.Count];
@@ -190,7 +190,7 @@ namespace Graphic_Engine
             mesh.Figures.Add(f2);
 
             f2D.Add(new PointF3D(-1, -1, -1));
-            f2D.Add(new PointF3D(1, -1, -1)); //
+            f2D.Add(new PointF3D(1, -1, -1)); 
             f2D.Add(new PointF3D(1, -1, 1));
 
             mesh.Figures.Add(f2D);
@@ -204,7 +204,7 @@ namespace Graphic_Engine
             mesh.Figures.Add(f3);
 
             f3D.Add(new PointF3D(-1, -1, -1));
-            f3D.Add(new PointF3D(-1, -1, 1)); //
+            f3D.Add(new PointF3D(-1, -1, 1)); 
             f3D.Add(new PointF3D(-1, 1, 1));
 
             mesh.Figures.Add(f3D);
@@ -219,7 +219,7 @@ namespace Graphic_Engine
             mesh.Figures.Add(f4);
 
             f4D.Add(new PointF3D(1, -1, -1));
-            f4D.Add(new PointF3D(-1, -1, -1)); //
+            f4D.Add(new PointF3D(-1, -1, -1)); 
             f4D.Add(new PointF3D(-1, 1, -1));
 
             mesh.Figures.Add(f4D);
@@ -233,7 +233,7 @@ namespace Graphic_Engine
             mesh.Figures.Add(f5);
 
             f5D.Add(new PointF3D(1, -1, 1));
-            f5D.Add(new PointF3D(1, -1, -1)); //
+            f5D.Add(new PointF3D(1, -1, -1)); 
             f5D.Add(new PointF3D(1, 1, -1));
 
             mesh.Figures.Add(f5D);
@@ -248,7 +248,7 @@ namespace Graphic_Engine
             mesh.Figures.Add(f6);
 
             f6D.Add(new PointF3D(-1, 1, 1));
-            f6D.Add(new PointF3D(1, 1, 1)); //
+            f6D.Add(new PointF3D(1, 1, 1)); 
             f6D.Add(new PointF3D(1, 1, -1));
 
             mesh.Figures.Add(f6D);
@@ -280,11 +280,10 @@ namespace Graphic_Engine
             {
                 if (normal[i].X * (mesh.Figures[i].Pts[0].X - camera.X) + normal[i].Y * (mesh.Figures[i].Pts[0].Y - camera.Y) + normal[i].Z * (mesh.Figures[i].Pts[0].Z - camera.Z) < 0)
                 {
-                    //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.LightGreen);
-                    canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.Red);
+                    //canvas.DrawFilledTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.FromArgb(32, 194, 14)); //It possible to use this method rather than "DrawWireframeTraingle" in order to draw the figures, but with the difference that the figures have a filling color.
+                    canvas.DrawWireFrameTriangle(mesh.Figures[i].Pts2D[0], mesh.Figures[i].Pts2D[1], mesh.Figures[i].Pts2D[2], Color.FromArgb(32, 194, 14));
                 }
             }
-           
             PCT_CANVAS.Invalidate();
         }
             

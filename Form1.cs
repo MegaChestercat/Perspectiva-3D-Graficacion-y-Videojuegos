@@ -21,11 +21,15 @@ namespace Graphic_Engine
             InitializeComponent();
             canvas = new Canvas(PCT_CANVAS);
             canvas.drawMidPoint(); //This will create the midpoint lines
+
+
+            //In order to watch the functioning of different figures it is required to set the methods that appear as comments as methods that are not commented. 
+
             //canvas.Cube(); //This method will create the initial cube
-            canvas.pizzaPoint1();
-            //canvas.cylinderPoint1();
-            //canvas.spherePoint1();
-            //canvas.halfSpherePoint1();
+            //canvas.Cone(); //This method will create the initial cone
+            //canvas.Cylinder(); //This method will create the initial cylinder
+            canvas.Sphere(); //This method will create the initial sphere
+            //canvas.SemiSphere(); //This method will create the initial semi-sphere
         }
 
         private void rotBTN_Click(object sender, EventArgs e)
